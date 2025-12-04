@@ -8,10 +8,10 @@ function update($connection)
         
         $montant = $_POST['montant'];
         $description = $_POST['description'];
+        $id = $_POST['id'];
+        $created_at = date('Y-m-d H:i:s'); // generate current datetime
         if($_POST['created_at'] != NULL) $created_at = $_POST['created_at'];
 
-        $created_at = date('Y-m-d H:i:s'); // generate current datetime
-        $id = $_POST['id'];
 
         $statement = $connection->prepare("UPDATE incomes SET montant = ? , description = ? , created_at = ? WHERE id = ?");
         //prepare used to prevent sql injection 
